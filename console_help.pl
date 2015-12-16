@@ -2,7 +2,15 @@
 use strict;
 use warnings;
 use utf8;
-use open ':std', ':encoding(UTF-8)';
+use Encode::Locale;
+
+if (-t) 
+{
+	binmode(STDIN, ":encoding(console_in)");
+	binmode(STDOUT, ":encoding(console_out)");
+	binmode(STDERR, ":encoding(console_out)");
+}
+
 use Perl6::Form;
 
 my @arr1 = ("Начало строки", 
